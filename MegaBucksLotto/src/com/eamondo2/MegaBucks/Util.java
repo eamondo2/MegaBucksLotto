@@ -48,6 +48,8 @@ public class Util {
 		
 		return testInt;
 	}
+	
+	
 	//The meat of the Util class, this generates 7 numbers, none of which repeat, from one to 42.
 	
 	public static int[] lotto_7_pick(){
@@ -85,6 +87,32 @@ public class Util {
 		return result;
 	}
 	
+	public static int[] user_EasyPick(){
+		int[] result = new int[6];
+		ArrayList<Integer> temp_Storage = new ArrayList<Integer>();
+		int c = 0;
+		while (c < 6){
+			
+			int test = rand_lotto_pick();
+			while (temp_Storage.contains(test)){
+				//sendmessage(test);
+				test = rand_lotto_pick();
+			}
+			temp_Storage.add(test);
+			
+			
+			c++;
+		}
+		c = 0;
+		for (int k : temp_Storage){
+			//sendmessage(k);
+			result[c] = k;
+			
+			c++;
+		}
+		return result;
+	}
+	
 	public static void printArray(int[] k){
 		for (int x : k){
 			sendmessage(x);
@@ -93,5 +121,16 @@ public class Util {
 		
 		
 	}
-
+	
+	public static void printEntry(int[]k, int[] j,  int t){
+		System.out.println("--------------------------------------");
+		System.out.println("Lottery Ticket # " + t + "\n");
+		System.out.println("Your Choice: " + "\n" + k[0] + ", " + k[1] + ", " + k[2] + ", " + k[3] + ", "  + k[4] + ", " + k[5] + "\n");
+		System.out.println("Computer Choice: "  + "\n" + j[0] + ", " + j[1] + ", " + j[2] + ", " + j[3] + ", "  + j[4] + ", " + j[5] + "\n");
+		System.out.println("BONUS NUMBER: " + j[6] + "\n");
+		
+		
+		
+		
+	}
 }
