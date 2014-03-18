@@ -76,6 +76,7 @@ public class Main {
 		
 		//This section of the code loops for the 104 days that the numbers are drawn
 		int i = 0;
+		int match = 0;
 		while (i != 104){
 			//Set the computer choice for today
 			compChoice = Util.lotto_7_pick();
@@ -92,7 +93,7 @@ public class Main {
 				
 			}
 			//Find total matches overall
-			int match = 0;
+			
 			Util.sendmessage("Matching numbers are: " + "\n");
 			for (int k : compChoice){
 				HashMap<Integer, Integer> tempfreq = new HashMap<Integer, Integer>();
@@ -125,7 +126,8 @@ public class Main {
 			
 			i++;
 		}
-		
+		Util.sendmessage("Total number of matches across all tickets: ");
+		Util.sendmessage(match);
 		
 		
 		
